@@ -11,7 +11,7 @@ Si les profils de vos membres sont **privés**, collez ceci à la fin du templat
 
 ```html
 <!-- IF S_USER_LEVEL !== 'ANONYMOUS' -->
-<script src="http://ky0suke.github.io/xooit/xooiAvatar.js"></script>
+<script src="https://rawgit.com/Ky0suke/XooiAvatar/master/XooiAvatar.js"></script>
 <script>
 let avatar = new XooiAvatar({
     "position": "beforeBegin",
@@ -26,7 +26,7 @@ let avatar = new XooiAvatar({
 Si les profils de vos membres sont **publics**, collez ceci à la fin du template INDEX_BODY.TPL :
 
 ```html
-<script src="http://ky0suke.github.io/xooit/xooiAvatar.js"></script>
+<script src="https://rawgit.com/Ky0suke/XooiAvatar/master/XooiAvatar.js"></script>
 <script>
 let avatar = new XooiAvatar({
     "position": "beforeBegin",
@@ -47,4 +47,4 @@ ___
 | position      | Positionne l'avatar avant ou après le pseudo   | **beforeBegin** (avant) ou **afterEnd** (après) | beforeBegin |
 | width         | Indique la largeur de l'avatar (en pixel)      | valeur numérique supérieure a zéro      | 25 |
 | height        | Indique la hauteur de l'avatar (en pixel)      | valeur numérique supérieure a zéro      | 25 |
-| defaultAvatar | Avatar par défaut                              | valeur numérique supérieure a zéro      | http://img.xooimage.com/files110/8/2/9/noavatar-507cd41.png |
+| defaultAvatar | Avatar par défaut                              | URL d'une image                         | http://img.xooimage.com/files110/8/2/9/noavatar-507cd41.png |
