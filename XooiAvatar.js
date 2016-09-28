@@ -92,7 +92,6 @@ class XooiAvatar {
             /** @type {HTMLElement} */
             const userLink = row.querySelector('td:last-child a[href^=profile]');
             if (userLink) {
-                console.log(this.users.length);
                 /** @type {String} */
                 const userName = userLink.textContent || userLink.innerText,
                     /** @type {Number} */
