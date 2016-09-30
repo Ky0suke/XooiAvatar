@@ -73,7 +73,7 @@ class XooiAvatar {
         /** @type {Array} */
         this.rows = [];
         /** @type {HTMLElement} */
-        const forumLinks = document.querySelectorAll('span.forumlink');
+        const forumLinks = document.querySelectorAll('span.forumlink') || document.querySelectorAll('span.topictitle');
         for (let link of forumLinks) {
             /** @type {HTMLElement} */
             const parent = XooiAvatar.getParent(link, 'TR');
@@ -100,8 +100,8 @@ class XooiAvatar {
                     user = {
                         "userName": userName
                     };
-                // Si l'utilisateur n'existe pas dans notre objet...
-                if (!(userId in this.users)) {
+                // Si l'utilisateur n'existe pas dans notre objet et que son ID est supérieur à zéro ...
+                if (!(userId in this.users) && userId > 0) {
                     // ajoute le
                     this.users[userId] = user;
                 }
@@ -164,12 +164,16 @@ class XooiAvatar {
                 avatar = this.users[userId].avatar || this.options.defaultAvatar;
             for (let row of this.rows) {
                 /** @type {HTMLElement} */
-                const userLink = row.querySelector('td:last-child a[href^=profile]');
-                if (userLink) {
-                    /** @type {String} */
-                    const userLinkText = userLink.textContent;
-                    if (userLinkText === userName) {
-                        userLink.insertAdjacentHTML(this.options.position, `<img src="${avatar}" style="width: ${this.options.width}px; height: ${this.options.height}px; vertical-align: middle; margin: 5px;">`);
+                const td = row.querySelector('td:last-child');
+                if (td) {
+                    /** @type {HTMLElement} */
+                    const userLink = td.querySelector('a[href^=profile]');
+                    if (userLink) {
+                        /** @type {String} */
+                        const userLinkText = userLink.textContent;
+                        if (userLinkText === userName) {
+                            userLink.insertAdjacentHTML(this.options.position, `<img src="${avatar}" style="width: ${this.options.width}px; height: ${this.options.height}px; vertical-align: middle; margin: 5px;">`);
+                        }
                     }
                 }
             }
