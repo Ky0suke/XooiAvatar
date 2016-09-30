@@ -73,7 +73,7 @@ class XooiAvatar {
         /** @type {Array} */
         this.rows = [];
         /** @type {HTMLElement} */
-        const forumLinks = document.querySelectorAll('span.forumlink') || document.querySelectorAll('span.topictitle');
+        const forumLinks = (document.querySelector('span.forumlink')) ? document.querySelectorAll('span.forumlink') : document.querySelectorAll('span.topictitle');
         for (let link of forumLinks) {
             /** @type {HTMLElement} */
             const parent = XooiAvatar.getParent(link, 'TR');
